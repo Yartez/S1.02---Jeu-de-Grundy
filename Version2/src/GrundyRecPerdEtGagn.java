@@ -55,7 +55,7 @@ class GrundyRecPerdEtGagn {
 					// certain to win!!
                     jeu.clear();
                     gagnant = true;
-					// essai is copied into game because trial is the new game situation after the machine has played (winner)
+					// essai is copied into game because trial is the new game situation after the machine has played (gagnant)
                     for (int i = 0; i < essai.size(); i++) {
                         jeu.add(essai.get(i));
                     }

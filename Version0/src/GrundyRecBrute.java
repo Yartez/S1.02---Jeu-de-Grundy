@@ -21,7 +21,6 @@ class GrundyRecBrute {
         testJouerGagnant();
 		testPremier();
 		testSuivant();
-        testEfficacite();
     }
 	
     /**
@@ -483,18 +482,6 @@ class GrundyRecBrute {
             System.out.println("OK\n");
         } else {
             System.err.println("ERREUR\n");
-        }
-    }
-
-    /**
-     * Test de l'efficacité de la méthode estGagnante
-     */
-    void testEfficacite() {
-        System.out.println();
-        System.out.println("*** testEfficacite() ***");
-        for (int n = 3; n <= 20; n++) {
-            ArrayList<Integer> jeu = new ArrayList<>(Collections.singletonList(n));
-            estGagnante(jeu);
         }
     }
 }

@@ -401,7 +401,7 @@ class GrundyRecPerdEtGagn {
 			int nbAllumEnLigne = jeuEssai.get(ligne);
 			int nbAllDernCase = jeuEssai.get(jeuEssai.size() - 1);
 			
-			// // if on the same line (passed as a parameter) you can still remove matches,
+			// if on the same line (passed as a parameter) you can still remove matches,
 			// if the difference between the number of matches on this line and
 			// the number of matches at the end of the table is > 2, so we remove again
 			// 1 match on this line and we add 1 match in the last box		

@@ -4,9 +4,9 @@ import java.util.Collections;
 import java.util.Random;
 
 /**
- * Jeu de Grundy avec IA pour la machine
- * Ce programme ne contient que les méthodes permettant de tester jouerGagnant()
- * Cette version est brute sans aucune amélioration
+ * Grundy game with AI for the machine
+ * This program only contains the methods for testing jouerGagnant()
+ * This version is raw without any improvements
  *
  * @author G.Audebert, Y.Monnot
  */
@@ -14,13 +14,13 @@ import java.util.Random;
 class GrundyRecBruteEff {
 
     /**
-     * Variables globales
+     * Global variables
      */
-    long cpt; // compteur d'opérations élémentaires
+    long cpt; // elementary operations counter
     /**
-     * Constructeur de la classe
+     * Class constructor
      */
-    GrundyRecBrute monGrundy = new GrundyRecBrute(); // Pour les méthodes de la classe GrundyRecBrute
+    GrundyRecBrute monGrundy = new GrundyRecBrute(); // For class methods GrundyRecBrute
 
     /**
      * Méthode principal du programme
@@ -31,18 +31,18 @@ class GrundyRecBruteEff {
     }
 
     /**
-     * Boucle principale du jeu
+     * Main game loop
      */
     void boucleJeu() {
         boolean game = true;
-        // Initialisation du jeu
+        // Initializing the game
         int n = SimpleInput.getInt("Saisir la taille du jeu : ");
         ArrayList<Integer> jeu = new ArrayList<>(Collections.singletonList(n));
         
         while (monGrundy.estPossible(jeu)) {
-            // Affichage du jeu
+            // Game display
             System.out.println("Jeu : " + jeu);
-            // Résultat du jeu
+            // Game result
             tourIA(jeu);
             System.out.println("Jeu : " + jeu);
             
@@ -56,15 +56,15 @@ class GrundyRecBruteEff {
         System.out.println("Jeu terminé : " + jeu);
     }
     /**
-     * Méthode du tour de l'IA
+     * AI trick method
      */
     void tourIA(ArrayList<Integer> jeu) {
-        // Résultat du jeu
+        // Game result
         boolean res = monGrundy.jouerGagnant(jeu);
         System.out.println("Résultat : " + res);
         
         if (!res) {
-            // Jouer un coup aléatoire
+            // Play a random move
             Random rand = new Random();
             int tas, allumettes;
             do {
@@ -78,7 +78,7 @@ class GrundyRecBruteEff {
     }
 
     /**
-     * Test de l'efficacité de la méthode estGagnante
+     * Testing the effectiveness of the method estGagnante
      */
     void testEfficacite() {
         System.out.println();

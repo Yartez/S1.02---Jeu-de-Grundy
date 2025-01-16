@@ -13,13 +13,12 @@ class GrundyRecPerdEtGagn {
     /**
      * Principal function of the program
      */
-    public static void main(String[] args) {
-		GrundyRecPerdEtGagn Grundy = new GrundyRecPerdEtGagn();
-        Grundy.testJouerGagnant();
-		Grundy.testPremier();
-		Grundy.testSuivant();
-        Grundy.testEfficacite();
-        Grundy.boucleJeu();
+    void principal() {
+        testJouerGagnant();
+		testPremier();
+		testSuivant();
+        testEfficacite();
+        boucleJeu();
     }
     
     /**

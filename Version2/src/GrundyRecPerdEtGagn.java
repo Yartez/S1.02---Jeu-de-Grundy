@@ -5,7 +5,9 @@ import java.util.Random;
 
 
 class GrundyRecPerdEtGagn {
-	
+	/**
+     * Global variables
+     */	
 	long cpt; // elementary operations counter
     ArrayList<ArrayList<Integer>> posPerdantes = new ArrayList<>(); // table of losing situations
     ArrayList<ArrayList<Integer>> posGagnantes = new ArrayList<>(); // table of winning situations

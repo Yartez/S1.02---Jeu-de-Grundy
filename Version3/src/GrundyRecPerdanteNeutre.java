@@ -431,24 +431,24 @@ class GrundyRecPerdanteNeutre {
                 numTas = ligne;
             } 
 			
-			// sinon il faut examiner le tas (ligne) suivant du jeu pour éventuellement le décomposer
-			// on recrée une nouvelle configuration d'essai identique au plateau de jeu
+			// otherwise you have to examine the pile (ligne) next part of the game to possibly break it down
+			// we recreate a new test configuration identical to the game board
 			else {
-                // copie du jeu dans JeuEssai
+                // copy of the game in JeuEssai
                 jeuEssai.clear();
                 for (i = 0; i < jeu.size(); i++) {
                     jeuEssai.add(jeu.get(i));
                 }
 				
                 boolean separation = false;
-                i = ligne + 1; // tas suivant
-				// si il y a encore un tas et qu'il contient au moins 3 allumettes
-				// alors on effectue une première séparation en enlevant 1 allumette
+                i = ligne + 1; // next pile
+				// if there is still a pile and it contains at least 3 matches
+				// then we carry out a first separation by removing 1 match
                 while ( i < jeuEssai.size() && !separation ) {
-					// le tas doit faire minimum 3 allumettes
+					// the pile must be at least 3 matches
                     if ( jeu.get(i) > 2 ) {
                         separation = true;
-						// on commence par enlever 1 allumette à ce tas
+						// we start by removing 1 match from this pile
                         enlever(jeuEssai, i, 1);
 						numTas = i;
                     } else {
@@ -462,7 +462,7 @@ class GrundyRecPerdanteNeutre {
     }
 
     /**
-     * Tests succincts de la méthode suivant()
+     * Brief tests of the method suivant()
      */
     void testSuivant() {
         System.out.println();
@@ -512,13 +512,13 @@ class GrundyRecPerdanteNeutre {
     }
 
     /**
-     * Test un cas de la méthode suivant
+     * Test a case of the method suivant
 	 * 
-	 * @param jeu le plateau de jeu
-	 * @param jeuEssai le plateau de jeu obtenu après avoir séparé un tas
-	 * @param ligne le numéro du tas qui est le dernier à avoir été séparé
-	 * @param resJeu est le jeuEssai attendu après séparation
-	 * @param resLigne est le numéro attendu du tas qui est séparé
+	 * @param jeu the game board
+	 * @param jeuEssai the game board obtained after separating a pile
+	 * @param ligne the number of the pile which was the last to have been separated
+	 * @param resJeu is the jeuEssai expected after separation
+	 * @param resLigne is the expected number of the heap that is separated
      */
     void testCasSuivant(ArrayList<Integer> jeu, ArrayList<Integer> jeuEssai, int ligne, ArrayList<Integer> resJeu, int resLigne) {
         // Arrange
@@ -535,18 +535,18 @@ class GrundyRecPerdanteNeutre {
         }
     }
     /**
-     * Boucle principale du jeu
+     * Main game loop
      */
     void boucleJeu() {
         boolean game = true;
-        // Initialisation du jeu
+        // Initializing the game
         int n = SimpleInput.getInt("Saisir la taille du jeu : ");
         ArrayList<Integer> jeu = new ArrayList<>(Collections.singletonList(n));
         
         while (estPossible(jeu)) {
-            // Affichage du jeu
+            // Game display
             System.out.println("Jeu : " + jeu);
-            // Résultat du jeu
+            // Game result
             tourIA(jeu);
             System.out.println("Jeu : " + jeu);
             
@@ -560,15 +560,15 @@ class GrundyRecPerdanteNeutre {
         System.out.println("Jeu terminé : " + jeu);
     }
     /**
-     * Méthode du tour de l'IA
+     * AI method
      */
     void tourIA(ArrayList<Integer> jeu) {
-        // Résultat du jeu
+        // Game result
         boolean res = jouerGagnant(jeu);
         System.out.println("Résultat : " + res);
         
         if (!res) {
-            // Jouer un coup aléatoire
+            // Play a random move
             Random rand = new Random();
             int tas, allumettes;
             do {
@@ -582,7 +582,7 @@ class GrundyRecPerdanteNeutre {
     }
 
     /**
-     * Test de l'efficacité de la méthode estGagnante
+     * Testing the effectiveness of the method estGagnante
      */
     void testEfficacite() {
         System.out.println();

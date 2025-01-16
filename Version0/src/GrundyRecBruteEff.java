@@ -26,6 +26,7 @@ class GrundyRecBruteEff {
      * Méthode principal du programme
      */
     void principal() {
+        testEfficacite();
         boucleJeu();
     }
 
@@ -73,6 +74,18 @@ class GrundyRecBruteEff {
             
             System.out.println("Coup aléatoire : enlever " + allumettes + " allumettes du tas " + (tas + 1));
             monGrundy.enlever(jeu, tas, allumettes);
+        }
+    }
+
+    /**
+     * Test de l'efficacité de la méthode estGagnante
+     */
+    void testEfficacite() {
+        System.out.println();
+        System.out.println("*** testEfficacite() ***");
+        for (int n = 3; n <= 20; n++) {
+            ArrayList<Integer> jeu = new ArrayList<>(Collections.singletonList(n));
+            monGrundy.estGagnante(jeu);
         }
     }
 }

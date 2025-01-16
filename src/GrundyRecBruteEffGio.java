@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Random;
 
 /**
  * Jeu de Grundy avec IA pour la machine
@@ -34,28 +35,44 @@ class GrundyRecBruteEff {
     void boucleJeu() {
         boolean game = true;
         // Initialisation du jeu
-        int n = 0;
-        ArrayList<Integer> jeu = new ArrayList<>(n);
-        // Saisie du jeu    
-        n = SimpleInput.getInt("Saisir la taille du jeu : ");
-        jeu.add(n);
+        int n = SimpleInput.getInt("Saisir la taille du jeu : ");
+        ArrayList<Integer> jeu = new ArrayList<>(Collections.singletonList(n));
+        
         while (monGrundy.estPossible(jeu)) {
             // Affichage du jeu
             System.out.println("Jeu : " + jeu);
             // Résultat du jeu
-            boolean res = monGrundy.jouerGagnant(jeu);
-            System.out.println("Résultat : " + res);
-            if (res){
-            }else if (!res){
-                
-                int nbAEnlever = (int)Math.random() * n;
-                monGrundy.enlever(jeu, 0, 4);
-                System.out.println(jeu);
+            tourIA(jeu);
+            System.out.println("Jeu : " + jeu);
+            
+            if (monGrundy.estPossible(jeu)) {
+                int userLigne = SimpleInput.getInt("Sur quelle tas enlever des allumettes? ");
+                int userMove = SimpleInput.getInt("Combien d'allumettes à enlever ? ");
+                monGrundy.enlever(jeu, userLigne - 1, userMove);
             }
-            int userLigne = SimpleInput.getInt("Sur quelle tas enlever des allumettes? ");
-            int userMove = SimpleInput.getInt("Combien d'allumettes à enlever ? ");
-            monGrundy.enlever(jeu, userLigne-1, userMove);
         }
-        System.out.println(jeu);
+        
+        System.out.println("Jeu terminé : " + jeu);
+    }
+    /**
+     * Méthode du tour de l'IA
+     */
+    void tourIA(ArrayList<Integer> jeu) {
+        // Résultat du jeu
+        boolean res = monGrundy.jouerGagnant(jeu);
+        System.out.println("Résultat : " + res);
+        
+        if (!res) {
+            // Jouer un coup aléatoire
+            Random rand = new Random();
+            int tas, allumettes;
+            do {
+                tas = rand.nextInt(jeu.size());
+                allumettes = rand.nextInt(jeu.get(tas)) + 1;
+            } while (allumettes == jeu.get(tas) || (jeu.get(tas) - allumettes) == allumettes);
+            
+            System.out.println("Coup aléatoire : enlever " + allumettes + " allumettes du tas " + (tas + 1));
+            monGrundy.enlever(jeu, tas, allumettes);
+        }
     }
 }

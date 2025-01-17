@@ -23,6 +23,7 @@ class GrundyRecPerdantes {
         testJouerGagnant();
 		testPremier();
 		testSuivant();
+	testNormalize();
 	testEstConnuePerdante();
         testEfficacite();
         boucleJeu();

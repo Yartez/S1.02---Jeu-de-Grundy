@@ -23,6 +23,7 @@ class GrundyRecPerdantes {
         testJouerGagnant();
 		testPremier();
 		testSuivant();
+	testEstConnuePerdante();
         testEfficacite();
         boucleJeu();
     }
@@ -145,6 +146,47 @@ class GrundyRecPerdantes {
         ArrayList<Integer> normalizedJeu = normalize(jeu);
         return posPerdantes.contains(normalizedJeu);
     }
+
+    /**
+     * Brief tests of the method estConnuePerdante()
+     */
+    void testEstConnuePerdante(){
+	System.out.println();
+        System.out.println("*** testEstConnuePerdante() ***");
+        
+        System.out.println("Test des cas normaux");
+        ArrayList<Integer> jeu1 = new ArrayList<Integer>();
+        jeu1.add(3);
+        ArrayList<Integer> jeu2 = new ArrayList<Integer>();
+        jeu2.add(4);
+
+        testCasEstConnuePerdante(jeu1, false);
+        testCasEstConnuePerdante(jeu2, true);
+        
+        
+    }
+	
+    /**
+     * Testing a case of the method estConnuePerdante()
+     *
+     * @param jeu the game board
+     * @param res the result expected by estConnuePerdante
+     */
+    void testCasEstConnuePerdante(ArrayList<Integer> jeu, boolean res){
+	// Arrange
+        System.out.print("estConnuePerdante (" + jeu + ") : ");
+
+        // Act
+        boolean resExec = estConnuePerdante(jeu);
+
+        // Assert
+        System.out.print(jeu.toString() + " : ");
+        if (res == resExec) {
+            System.out.println("OK\n");
+        } else {
+            System.err.println("ERREUR\n");
+        }
+   }
 	
     /**
      * Indicates if the configuration is winning.

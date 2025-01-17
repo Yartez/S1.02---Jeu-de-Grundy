@@ -21,6 +21,7 @@ class GrundyRecGplusGequalsP {
         testJouerGagnant();
 		testPremier();
 		testSuivant();
+	testNormalize();
 	testEstConnuePerdante();
 	testEstConnueGagnante();
         testEfficacite();

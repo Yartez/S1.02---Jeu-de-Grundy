@@ -20,6 +20,7 @@ class GrundyRecPerdanteNeutre {
         testJouerGagnant();
 		testPremier();
 		testSuivant();
+	testReduceJeu();
 	testNormalize();
 	testEstConnuePerdante();
 	testEstConnueGagnante();

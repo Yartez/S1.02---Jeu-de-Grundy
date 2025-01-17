@@ -20,6 +20,7 @@ class GrundyRecPerdanteNeutre {
         testJouerGagnant();
 		testPremier();
 		testSuivant();
+	testNormalize();
 	testEstConnuePerdante();
 	testEstConnueGagnante();
         testEfficacite();
@@ -159,6 +160,47 @@ class GrundyRecPerdanteNeutre {
         }
         Collections.sort(normalized);
         return normalized;
+    }
+    
+    /**
+     * Brief tests of the method normalize()
+     */
+    void testNormalize(){
+	System.out.println();
+        System.out.println("*** testNormalize() ***");
+        
+        System.out.println("Test des cas normaux");
+        ArrayList<Integer> jeu1 = new ArrayList<Integer>();
+        jeu1.add(2);
+        jeu1.add(1);
+        jeu1.add(4);
+		ArrayList<Integer> res = new ArrayList<Integer>();
+		res.add(4);
+        testCasNormalize(jeu1, res);
+        
+    }
+	
+    /**
+     * Testing a case of the method normalize()
+     *
+     * @param jeu the game board
+     * @param res the result expected by normalize
+     */
+    void testCasNormalize(ArrayList<Integer> jeu, ArrayList<Integer> res){
+	// Arrange
+        System.out.print("normalize (" + jeu + ") : ");
+
+        // Act
+        ArrayList<Integer> resExec = normalize(jeu);
+
+        // Assert
+        System.out.print(resExec.toString() + " : ");
+        boolean egaliteJeux = resExec.equals(res);
+        if (egaliteJeux) {
+            System.out.println("OK\n");
+        } else {
+            System.err.println("ERREUR\n");
+        }
     }
     
     /**

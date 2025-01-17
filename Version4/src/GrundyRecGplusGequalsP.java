@@ -158,6 +158,49 @@ class GrundyRecGplusGequalsP {
     }
     
     /**
+     * Brief tests of the method reduceJeu()
+     */
+    void testReduceJeu(){
+	System.out.println();
+        System.out.println("*** testReduceJeu() ***");
+        
+        System.out.println("Test des cas normaux");
+        ArrayList<Integer> jeu1 = new ArrayList<Integer>();
+        jeu1.add(5);
+        jeu1.add(4);
+        jeu1.add(1);
+        jeu1.add(2);
+        //jeu1.add(10);
+		ArrayList<Integer> res = new ArrayList<Integer>();
+		res.add(5);
+        testCasReduceJeu(jeu1, res);
+        
+    }
+	
+    /**
+     * Testing a case of the method reduceJeu()
+     *
+     * @param jeu the game board
+     * @param res the result expected by reduceJeu
+     */
+    void testCasReduceJeu(ArrayList<Integer> jeu, ArrayList<Integer> res){
+	// Arrange
+        System.out.print("reduceJeu (" + jeu + ") : ");
+
+        // Act
+        ArrayList<Integer> resExec = reduceJeu(jeu);
+
+        // Assert
+        System.out.print(resExec.toString() + " : ");
+        boolean egaliteJeux = resExec.equals(res);
+        if (egaliteJeux) {
+            System.out.println("OK\n");
+        } else {
+            System.err.println("ERREUR\n");
+        }
+    }
+    
+    /**
      * Normalizes the game state by removing piles of 1 and 2 matches and sorting the remaining piles.
      * 
      * @param jeu the game state

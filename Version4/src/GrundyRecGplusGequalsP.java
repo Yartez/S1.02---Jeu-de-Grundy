@@ -331,9 +331,9 @@ class GrundyRecGplusGequalsP {
         
         System.out.println("Test des cas normaux");
         ArrayList<Integer> jeu1 = new ArrayList<Integer>();
-        jeu1.add(3);
+        jeu1.add(2);
         ArrayList<Integer> jeu2 = new ArrayList<Integer>();
-        jeu2.add(4);
+        jeu2.add(7);
 
         testCasEstConnuePerdante(jeu1, true);
         testCasEstConnuePerdante(jeu2, false);

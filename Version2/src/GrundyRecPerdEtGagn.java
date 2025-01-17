@@ -19,6 +19,7 @@ class GrundyRecPerdEtGagn {
         testJouerGagnant();
 		testPremier();
 		testSuivant();
+	testNormalize();
 	testEstConnuePerdante();
 	testEstConnueGagnante();
         testEfficacite();
